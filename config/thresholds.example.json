@@ -1,0 +1,9 @@
+{
+  "UnderReplicatedPartitions": {"warn": 1, "critical": 10},
+  "OfflinePartitionsCount": {"warn": 1, "critical": 1},
+  "IsrShrinksPerSec": {"warn": 0.5, "critical": 2.0},
+  "ProduceTotalTimeMsP99": {"warn": 200, "critical": 500},
+  "disk_pct": {"warn": 75, "critical": 90},
+  "inode_pct": {"warn": 75, "critical": 90},
+  "stale_after_seconds": 300
+}

@@ -1,0 +1,31 @@
+{
+  "name": "lab-cluster",
+  "brokers": [
+    {
+      "broker_id": 1,
+      "host": {"hostname": "kafka-01", "ip": "10.0.1.11", "rack": "a"},
+      "port": 9093,
+      "is_controller": true,
+      "last_seen": "2026-10-15T09:00:00Z",
+      "metrics": {
+        "UnderReplicatedPartitions": 0,
+        "OfflinePartitionsCount": 0,
+        "IsrShrinksPerSec": 0.0,
+        "ProduceTotalTimeMsP99": 45.0
+      }
+    },
+    {
+      "broker_id": 2,
+      "host": {"hostname": "kafka-02", "ip": "10.0.1.12", "rack": "b"},
+      "port": 9093,
+      "is_controller": false,
+      "last_seen": "2026-10-15T09:00:00Z",
+      "metrics": {
+        "UnderReplicatedPartitions": 14,
+        "OfflinePartitionsCount": 0,
+        "IsrShrinksPerSec": 2.5,
+        "ProduceTotalTimeMsP99": 410.0
+      }
+    }
+  ]
+}
