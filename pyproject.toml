@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kafka-sre-lab"
+version = "0.1.0"
+description = "Kafka broker health tooling, built and operated end to end: Python, AWS, Terraform, Kubernetes, observability, chaos and CI/CD."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "mypy>=1.10",
+  "ruff>=0.6",
+  "black>=24.4",
+  "pre-commit>=3.7",
+]
+
+[project.scripts]
+host-status = "kafka_sre_lab.host_status.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers --cov=kafka_sre_lab --cov-report=term-missing"
+
+[tool.coverage.report]
+# Raise to 80 once Week 2 lands (see ROADMAP.md).
+fail_under = 0
+show_missing = true
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "PL"]
+ignore = ["PLR2004"]  # magic numbers are fine in thresholds and tests
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src", "tests"]
